@@ -1,0 +1,43 @@
+{
+  "resume_compatible_implementations": [
+    "2dc6d8e4a84250600b42a36981ccfb42c4ec7613a9f99d415ecfe493203c7bd7",
+    "1749c284d82f063d3f7c800b9c32165b8162cac35507993bc49ddec4100de247",
+    "588fe3b5e561543847ad12e3089754ed8ab0d84fc4fe30783860b80e359e4fea",
+    "45c0124f5d6eb11c46db6994ae7b305171813dd61dd99e4a0b4e959425bfcc63",
+    "9af47db7b0bbd8c9f7adedb75a7e4118637580f7fe1b19a85402c3464d3c6c33"
+  ],
+  "technical_cache_compatible_algorithms": [
+    {
+      "looplib/technical_cache.py": "0dcf8710ad7d95678fb0c6cdefbba3225bfe3674b25eea0f06970af1e7605468",
+      "looplib/technical.py": "be08dddcf2a35587b3694bd4b8ea7223247c6f82340f5591299cbecd0bd06732",
+      "looplib/properties.py": "0badf11daaa42791e2d2d13749a7274e2af7f0336ccdd89ff76b9e5a79de102d",
+      "looplib/inputs.py": "5d003e6708a60d51dfc9f04973dd3ed6f67bcf3b67a43018ddb6aa8a75154903",
+      "looplib/bootstrap.py": "50caf0235393d71999fb202f1f14483cfee402ab43e4fdeb481b7481a55eed51",
+      "looplib/common.py": "f83b9d37f513b4eea721d06ab9fb9d43753bcf40b741796ddb09a70ee801a753",
+      "vendor/aq/assertion_aq_pipeline.py": "8b8f5ea080d8322d75b996e3879530a83f75810ebf99a5217281552eca8ce0e5",
+      "vendor/aq/aq_jasper_generic.tcl": "03d7a4bb86bf0e7641507a27dc3b9bec2e66d4c2670e80f78c089b6800e5d44f",
+      "vendor/aq/process_watch.py": "7dc1c7b99256a571a115ee6507bd7f9bb2a7b20a6b7b95000329199ba10773fa",
+      "examples/aq_base.json": "210640434c0ffa5d88b71f8a373c0000b9e43aabfdc545d01f38e963e4c664c7"
+    }
+  ],
+  "pre_b1_pool_compatible_revisions": [
+    {
+      "implementation": "47148127a1c6ed831b35f4fe693b810d82b5c1f3393a717fd65a6a324c20d214",
+      "generator_files": {
+        "generate_mutants.py": "18e08e7ba60b29bd5afab82c2699681bd78f91524324a67f4fcc7dac902e4ad7",
+        "generate_mutants_ast.py": "39cf6e3280d0de1a7ed2784003e954458604670293ea1e8d1f18c1ad363ba57f",
+        "validate_mutants.py": "3a8565911f38e03b917a0019dee10ac77569621dc52b5fd7906f96fd89043dd7",
+        "collect_jasper.py": "f2a75a19209cc303ece7d07ddee6461aa9d4120f78067ed36f8c298e3a10e500"
+      }
+    },
+    {
+      "implementation": "9af47db7b0bbd8c9f7adedb75a7e4118637580f7fe1b19a85402c3464d3c6c33",
+      "generator_files": {
+        "generate_mutants.py": "16530ed7fb03462c4cee789594e0068ff6322112e823b339a8506b0533076a3c",
+        "generate_mutants_ast.py": "2a4ac5ee0cfb1657e7a6e0db99d804ff691c7c7e88e9fca614254d25923a27b3",
+        "validate_mutants.py": "3a8565911f38e03b917a0019dee10ac77569621dc52b5fd7906f96fd89043dd7",
+        "collect_jasper.py": "f2a75a19209cc303ece7d07ddee6461aa9d4120f78067ed36f8c298e3a10e500"
+      }
+    }
+  ]
+}

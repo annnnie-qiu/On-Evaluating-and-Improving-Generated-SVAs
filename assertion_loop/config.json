@@ -1,0 +1,64 @@
+{
+  "_todo": "TODO: main max_rounds=3 counts STEP B rounds only. Choose after ablation. Step A must fully pass within 50 attempts; otherwise preserve checkpoints and skip to the next model.",
+  "max_rounds": 3,
+  "step_a_max_attempts": 50,
+  "ablation_budgets": [
+    1,
+    3,
+    5,
+    10,
+    15,
+    20
+  ],
+  "input_mode": "existing_assertions",
+  "spec_policy": "contradiction_only",
+  "feedback_examples": 8,
+  "assertion_budget": null,
+  "workers": 1,
+  "jasper_executable": "jg",
+  "jasper_version_tag": "SET_TO_YOUR_JASPER_VERSION",
+  "syntax_timeout_seconds": 1200,
+  "proof_timeout_seconds": 7200,
+  "backend": "ast",
+  "max_mutants_per_family": null,
+  "pool_seed": 20261110,
+  "test_fraction": 0.25,
+  "validation_fraction": 0.25,
+  "base_url": "https://openrouter.ai/api/v1",
+  "key_env": "OPENROUTER_API_KEY",
+  "key_file": "",
+  "request_timeout_seconds": 900,
+  "api_request_policy": "capability_defaults_v1",
+  "max_output_tokens": null,
+  "temperature": 0,
+  "models": {
+    "qwen": {
+      "id": "qwen/qwen-2.5-coder-32b-instruct",
+      "note": "OpenRouter hosted Coder 32B. Previous Ollama Qwen2.5 Coder 14B is not silently treated as this model. Edit ID if a different hosted Qwen is desired."
+    },
+    "deepseek": {
+      "id": "deepseek/deepseek-v4.1-flash",
+      "reasoning_mode": "off"
+    },
+    "gpt": {
+      "id": "openai/gpt-6-luna",
+      "supports_temperature": false
+    },
+    "gemini": {
+      "id": "google/gemini-3.5-flash-lite"
+    },
+    "opus": {
+      "id": "anthropic/claude-opus-5",
+      "supports_temperature": false
+    },
+    "gpt61": {
+      "id": "openai/gpt-6.1-sol",
+      "supports_temperature": false
+    }
+  },
+  "protocol_version": 16,
+  "feedback_policy": "targeted",
+  "stop_on_saturation": true,
+  "stop_on_repeated_request": true,
+  "fault_qualification": "syntax"
+}

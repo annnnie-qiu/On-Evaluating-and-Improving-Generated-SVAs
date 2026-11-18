@@ -1,0 +1,84 @@
+{
+  "project_root": "auto",
+  "paths": {
+    "rtl_dir": "rtl",
+    "assertions_dir": "assertions",
+    "buggy_assertions_dir": "buggy_assertions",
+    "bind_dir": "bind",
+    "output_dir": "aq_out",
+    "buggy_output_dir": "aq_buggy_out"
+  },
+  "include": ["**/*.sv", "**/*.svh", "**/*.sva", "**/*.v"],
+  "exclude": [],
+  "workers": 1,
+  "timeout_seconds": 7200,
+  "jasper": {"executable": "jg"},
+  "rtl": {
+    "auto_discover": false,
+    "include_dirs": ["rtl"],
+    "defines": []
+  },
+  "formal": {"clock_mode": "auto", "clock": "", "reset_expression": ""},
+  "bind": {
+    "mode": "mapping",
+    "mapping": {
+      "*padder_assertions.sv": ["bind/padder_bind.sv"],
+      "*f_permutation_assertions.sv": ["bind/f_permutation_bind.sv"]
+    }
+  },
+  "units": {
+    "infer_top_suffixes": ["_assertions", "_assertion", "_sva", "_properties"],
+    "mapping": {
+      "*padder_assertions.sv": {
+        "top": "padder",
+        "rtl_files": ["rtl/padder1.v", "rtl/padder.v"],
+        "clock_mode": "clocked",
+        "clock": "clk",
+        "reset_expression": "reset"
+      },
+      "*f_permutation_assertions.sv": {
+        "top": "f_permutation",
+        "rtl_files": ["rtl/rconst2in1.v", "rtl/round2in1.v", "rtl/f_permutation.v"],
+        "clock_mode": "clocked",
+        "clock": "clk",
+        "reset_expression": "reset"
+      }
+    }
+  },
+  "stages": {
+    "syntax": {
+      "command": "{q_jasper_executable} -batch {q_tcl_file}",
+      "tcl_template_file": "aq_jasper_generic.tcl",
+      "timeout_seconds": 1200,
+      "success_exit_codes": [0],
+      "parser": {
+        "pass_regex": "^AQ_SYNTAX_PASS$",
+        "fail_regex": "^(?:AQ_SYNTAX_FAIL|AQ_COMPILE_ERROR(?:\\s.*)?)$",
+        "pass_on_success_exit": false
+      }
+    },
+    "fpv": {
+      "command": "{q_jasper_executable} -batch {q_tcl_file}",
+      "tcl_template_file": "aq_jasper_generic.tcl",
+      "timeout_seconds": 7200,
+      "success_exit_codes": [0],
+      "parser": {
+        "proven_regex": "^AQ_FPV_PROVEN$",
+        "cex_regex": "^AQ_FPV_CEX$",
+        "unknown_regex": "^AQ_FPV_UNKNOWN$"
+      }
+    },
+    "vacuity": {
+      "command": "{q_jasper_executable} -batch {q_tcl_file}",
+      "tcl_template_file": "aq_jasper_generic.tcl",
+      "timeout_seconds": 7200,
+      "success_exit_codes": [0],
+      "parser": {
+        "non_vacuous_regex": "^AQ_NON_VACUOUS$",
+        "vacuous_regex": "^AQ_VACUOUS$",
+        "not_applicable_regex": "^AQ_VACUITY_NOT_APPLICABLE$",
+        "unknown_regex": "^AQ_VACUITY_UNKNOWN$"
+      }
+    }
+  }
+}

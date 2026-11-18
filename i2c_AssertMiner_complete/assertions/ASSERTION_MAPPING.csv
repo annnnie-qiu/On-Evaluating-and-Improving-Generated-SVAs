@@ -1,0 +1,14 @@
+source_item,property_name,assertion_file
+A-1,a_clk_enable_generation,i2c_master_bit_ctrl_assertions.sv
+A-2,a_slave_wait_detection,i2c_master_bit_ctrl_assertions.sv
+A-3-start,a_start_condition_detection,i2c_master_bit_ctrl_assertions.sv
+A-3-stop,a_stop_condition_detection,i2c_master_bit_ctrl_assertions.sv
+A-4-start,a_busy_after_start,i2c_master_bit_ctrl_assertions.sv
+A-4-stop,a_idle_after_stop,i2c_master_bit_ctrl_assertions.sv
+A-5,a_arbitration_lost_detection,i2c_master_bit_ctrl_assertions.sv
+A-6,a_data_output_capture,i2c_master_bit_ctrl_assertions.sv
+A-7,a_go_generation,i2c_master_byte_ctrl_assertions.sv
+A-8,a_shift_register_load,i2c_master_byte_ctrl_assertions.sv
+A-9,a_shift_register_shift,i2c_master_byte_ctrl_assertions.sv
+A-10,a_counter_done,i2c_master_byte_ctrl_assertions.sv
+A-11,a_interrupt_request_generation,i2c_master_top_assertions.sv

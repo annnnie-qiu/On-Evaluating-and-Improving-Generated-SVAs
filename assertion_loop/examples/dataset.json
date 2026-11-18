@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "units": [
+    {
+      "name": "my_dut",
+      "top": "my_dut",
+      "checker": "my_dut_assertions",
+      "assertion_files": ["assertions/my_dut_assertions.sv"],
+      "template": "gen_assertions/setup/templates/my_dut.sv",
+      "rtl_files": ["rtl/pkg.sv", "rtl/my_dut.sv"],
+      "bind_files": ["bind/my_dut_bind.sv"],
+      "environment_files": [],
+      "include_dirs": ["rtl"],
+      "defines": [],
+      "clock_mode": "clocked",
+      "clock": "clk",
+      "reset_expression": "!rst_n",
+      "spec_files": ["spec/spec.md"],
+      "mutation_targets": ["rtl/my_dut.sv"],
+      "pure_functions": [],
+      "fixed_dependencies": []
+    }
+  ]
+}

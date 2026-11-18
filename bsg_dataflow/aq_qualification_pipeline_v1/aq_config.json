@@ -1,0 +1,140 @@
+{
+  "project_root": "auto",
+  "paths": {
+    "rtl_dir": "rtl",
+    "assertions_dir": "assertions",
+    "bind_dir": "bind",
+    "output_dir": "aq_out"
+  },
+  "include": [
+    "**/*.sv",
+    "**/*.svh",
+    "**/*.sva",
+    "**/*.v"
+  ],
+  "exclude": [],
+  "workers": 1,
+  "timeout_seconds": 7200,
+  "jasper": {
+    "executable": "jg"
+  },
+  "rtl": {
+    "auto_discover": true,
+    "include_dirs": ["rtl"],
+    "defines": []
+  },
+  "formal": {
+    "clock_mode": "auto",
+    "clock": "",
+    "reset_expression": ""
+  },
+  "bind": {
+    "mode": "none"
+  },
+  "units": {
+    "infer_top_suffixes": [
+      "_assertions",
+      "_assertion",
+      "_sva",
+      "_properties"
+    ],
+    "mapping": {
+      "*bsg_cache_buffer_queue_assertions.v": {
+        "top": "bsg_cache_buffer_queue",
+        "rtl_files": ["rtl/bsg_cache_buffer_queue.sv"],
+        "clock_mode": "clocked",
+        "clock": "clk_i",
+        "reset_expression": "reset_i"
+      },
+      "*bsg_cache_decode_assertions.v": {
+        "top": "bsg_cache_decode",
+        "rtl_files": [
+          "rtl/bsg_cache_pkg.sv",
+          "rtl/bsg_cache_decode.sv"
+        ],
+        "clock_mode": "none"
+      },
+      "*bsg_cache_non_blocking_decode_assertions.v": {
+        "top": "bsg_cache_non_blocking_decode",
+        "rtl_files": [
+          "rtl/bsg_cache_pkg.sv",
+          "rtl/bsg_cache_non_blocking_pkg.sv",
+          "rtl/bsg_cache_non_blocking_decode.sv"
+        ],
+        "clock_mode": "none"
+      },
+      "*bsg_cache_sbuf_assertions.v": {
+        "top": "bsg_cache_sbuf",
+        "rtl_files": [
+          "rtl/bsg_cache_pkg.sv",
+          "rtl/bsg_cache_buffer_queue.sv",
+          "rtl/bsg_mux_segmented.sv",
+          "rtl/bsg_cache_sbuf.sv"
+        ],
+        "clock_mode": "clocked",
+        "clock": "clk_i",
+        "reset_expression": "reset_i"
+      },
+      "*bsg_cache_tbuf_assertions.v": {
+        "top": "bsg_cache_tbuf",
+        "rtl_files": [
+          "rtl/bsg_cache_pkg.sv",
+          "rtl/bsg_cache_buffer_queue.sv",
+          "rtl/bsg_cache_tbuf.sv"
+        ],
+        "clock_mode": "clocked",
+        "clock": "clk_i",
+        "reset_expression": "reset_i"
+      },
+      "*bsg_cache_to_dram_ctrl_tx_assertions.v": {
+        "top": "bsg_cache_to_dram_ctrl_tx",
+        "rtl_files": [
+          "rtl/bsg_cache_pkg.sv",
+          "rtl/bsg_counter_clear_up.sv",
+          "rtl/bsg_expand_bitmask.sv",
+          "rtl/bsg_mux.sv",
+          "rtl/bsg_cache_to_dram_ctrl_tx.sv"
+        ],
+        "clock_mode": "clocked",
+        "clock": "clk_i",
+        "reset_expression": "reset_i"
+      }
+    }
+  },
+  "stages": {
+    "syntax": {
+      "command": "{q_jasper_executable} -batch {q_tcl_file}",
+      "tcl_template_file": "aq_jasper_generic.tcl",
+      "timeout_seconds": 1200,
+      "success_exit_codes": [0],
+      "parser": {
+        "pass_regex": "^AQ_SYNTAX_PASS$",
+        "fail_regex": "^(?:AQ_SYNTAX_FAIL|AQ_COMPILE_ERROR(?:\\s.*)?)$",
+        "pass_on_success_exit": false
+      }
+    },
+    "fpv": {
+      "command": "{q_jasper_executable} -batch {q_tcl_file}",
+      "tcl_template_file": "aq_jasper_generic.tcl",
+      "timeout_seconds": 7200,
+      "success_exit_codes": [0],
+      "parser": {
+        "proven_regex": "^AQ_FPV_PROVEN$",
+        "cex_regex": "^AQ_FPV_CEX$",
+        "unknown_regex": "^AQ_FPV_UNKNOWN$"
+      }
+    },
+    "vacuity": {
+      "command": "{q_jasper_executable} -batch {q_tcl_file}",
+      "tcl_template_file": "aq_jasper_generic.tcl",
+      "timeout_seconds": 7200,
+      "success_exit_codes": [0],
+      "parser": {
+        "non_vacuous_regex": "^AQ_NON_VACUOUS$",
+        "vacuous_regex": "^AQ_VACUOUS$",
+        "not_applicable_regex": "^AQ_VACUITY_NOT_APPLICABLE$",
+        "unknown_regex": "^AQ_VACUITY_UNKNOWN$"
+      }
+    }
+  }
+}
